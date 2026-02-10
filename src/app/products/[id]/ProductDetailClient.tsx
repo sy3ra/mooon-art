@@ -76,6 +76,15 @@ const ProductDetailClient = ({ id, initialData }: ProductDetailClientProps) => {
                         <button disabled className="w-full bg-gray-200 text-gray-500 py-4 uppercase tracking-[0.2em] text-xs cursor-not-allowed">
                             Sold Out
                         </button>
+                    ) : artwork.purchaseUrl ? (
+                        <a
+                            href={artwork.purchaseUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-full bg-black text-white py-4 uppercase tracking-[0.2em] text-xs hover:bg-gray-800 transition-colors text-center block"
+                        >
+                            Purchase
+                        </a>
                     ) : (
                         <a href="mailto:info@mooonart.com" className="w-full bg-black text-white py-4 uppercase tracking-[0.2em] text-xs hover:bg-gray-800 transition-colors text-center block">
                             Inquire

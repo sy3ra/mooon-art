@@ -14,6 +14,10 @@ export async function PUT(
         dbPayload.is_sold_out = body.isSoldOut;
         delete dbPayload.isSoldOut;
     }
+    if (body.purchaseUrl !== undefined) {
+        dbPayload.purchase_url = body.purchaseUrl;
+        delete dbPayload.purchaseUrl;
+    }
     // Remove ID from payload to avoid updating PK
     delete dbPayload.id;
 
@@ -29,7 +33,8 @@ export async function PUT(
     // Map response
     const responseData = {
         ...data,
-        isSoldOut: data.is_sold_out
+        isSoldOut: data.is_sold_out,
+        purchaseUrl: data.purchase_url
     };
 
     return NextResponse.json(responseData);

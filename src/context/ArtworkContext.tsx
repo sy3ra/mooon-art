@@ -16,6 +16,7 @@ export interface Artwork {
     size: string;
     price: string;
     description: string;
+    purchaseUrl?: string;
     isSoldOut?: boolean;
 }
 

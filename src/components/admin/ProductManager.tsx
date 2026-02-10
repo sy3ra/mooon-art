@@ -22,6 +22,7 @@ const ProductManager = () => {
         size: '',
         price: '',
         description: '',
+        purchaseUrl: '',
         image: '', // Initialize as empty string
         isSoldOut: false
     });
@@ -47,6 +48,7 @@ const ProductManager = () => {
             size: art.size,
             price: art.price,
             description: art.description,
+            purchaseUrl: art.purchaseUrl || '',
             image: art.image as string, // Cast to string
             isSoldOut: art.isSoldOut || false
         });
@@ -65,6 +67,7 @@ const ProductManager = () => {
             size: '',
             price: '',
             description: '',
+            purchaseUrl: '',
             image: '',
             isSoldOut: false
         });
@@ -182,6 +185,15 @@ const ProductManager = () => {
                             <div>
                                 <label className="block text-xs uppercase text-gray-500 mb-1">Year</label>
                                 <input className="w-full border p-2 text-sm" value={formData.year} onChange={e => setFormData({ ...formData, year: e.target.value })} />
+                            </div>
+                            <div className="md:col-span-2">
+                                <label className="block text-xs uppercase text-gray-500 mb-1">Purchase URL (Optional)</label>
+                                <input
+                                    className="w-full border p-2 text-sm"
+                                    value={formData.purchaseUrl}
+                                    onChange={e => setFormData({ ...formData, purchaseUrl: e.target.value })}
+                                    placeholder="https://smartstore.naver.com/..."
+                                />
                             </div>
                         </div>
 

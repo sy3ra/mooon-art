@@ -9,7 +9,13 @@ export async function GET() {
 
     if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
-    return NextResponse.json(data);
+    const mappedData = data.map((item: any) => ({
+        ...item,
+        isSoldOut: item.is_sold_out,
+        purchaseUrl: item.purchase_url
+    }));
+
+    return NextResponse.json(mappedData);
 }
 
 export async function POST(request: Request) {
@@ -24,9 +30,11 @@ export async function POST(request: Request) {
 
     const dbPayload = {
         ...artworkData,
+        purchase_url: artworkData.purchaseUrl,
         is_sold_out: artworkData.isSoldOut // Map property
     };
     delete dbPayload.isSoldOut;
+    delete dbPayload.purchaseUrl;
 
     const { data, error } = await supabase
         .from('artworks')
@@ -39,6 +47,7 @@ export async function POST(request: Request) {
     // Map back to camelCase for frontend
     const responseData = {
         ...data,
+        purchaseUrl: data.purchase_url,
         isSoldOut: data.is_sold_out
     };
 

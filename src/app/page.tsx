@@ -1,20 +1,41 @@
+"use client";
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Instagram } from 'lucide-react';
 
+const HERO_IMAGES = [
+  '/assets/heroImg1.jpeg',
+  '/assets/heroImg2.jpeg',
+  '/assets/heroImg3.jpeg',
+];
+
 export default function Home() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="relative h-screen w-full overflow-hidden">
       {/* Mobile Design: Full Screen Image with Overlay */}
       <div className="md:hidden absolute inset-0">
-        <Image
-          src="/assets/heroImg.jpeg"
-          alt="Mooon Art Hero"
-          fill
-          className="object-cover"
-          priority
-
-        />
+        {HERO_IMAGES.map((src, index) => (
+          <Image
+            key={src}
+            src={src}
+            alt={`Mooon Art Hero ${index + 1}`}
+            fill
+            className={`object-cover transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+              }`}
+            priority={index === 0}
+          />
+        ))}
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-10">
           <h1
@@ -39,14 +60,17 @@ export default function Home() {
       <div className="hidden md:flex h-full">
         {/* Left Side: Image */}
         <div className="w-1/2 h-full relative">
-          <Image
-            src="/assets/heroImg.jpeg"
-            alt="Mooon Art Hero"
-            fill
-            className="object-cover"
-            priority
-
-          />
+          {HERO_IMAGES.map((src, index) => (
+            <Image
+              key={src}
+              src={src}
+              alt={`Mooon Art Hero ${index + 1}`}
+              fill
+              className={`object-cover transition-opacity duration-1000 ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+                }`}
+              priority={index === 0}
+            />
+          ))}
         </div>
 
         {/* Right Side: Navigation */}
