@@ -31,7 +31,7 @@ const Navbar = () => {
                 <Link href="/about" className={getLinkClass('/about')}>ABOUT</Link>
                 <Link href="/exhibition" className={getLinkClass('/exhibition')}>EXHIBITION</Link>
                 <Link href="/products" className={getLinkClass('/products')}>DRAWINGS</Link>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-500 transition-colors">
+                <a href="https://www.instagram.com/painting_mooon?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="hover:text-gray-500 transition-colors">
                     <Instagram size={20} />
                 </a>
             </div>
@@ -47,7 +47,7 @@ const Navbar = () => {
                     <Link href="/about" onClick={toggleMenu} className="block py-2">ABOUT</Link>
                     <Link href="/exhibition" onClick={toggleMenu} className="block py-2">EXHIBITION</Link>
                     <Link href="/products" onClick={toggleMenu} className="block py-2">DRAWINGS</Link>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/painting_mooon?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
                         <Instagram size={20} />
                     </a>
                 </div>

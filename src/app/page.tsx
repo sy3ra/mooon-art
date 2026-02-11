@@ -86,7 +86,7 @@ export default function Home() {
             <Link href="/about" className="hover:text-gray-500 transition-colors animate-fade-in-up" style={{ animationDelay: '0.2s' }}>ABOUT MOOON</Link>
             <Link href="/exhibition" className="hover:text-gray-500 transition-colors animate-fade-in-up" style={{ animationDelay: '0.3s' }}>EXHIBITION</Link>
             <Link href="/products" className="hover:text-gray-500 transition-colors animate-fade-in-up" style={{ animationDelay: '0.4s' }}>DRAWINGS</Link>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-500 transition-colors animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+            <a href="https://www.instagram.com/painting_mooon?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" className="hover:text-gray-500 transition-colors animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
               <Instagram size={24} />
             </a>
           </div>
